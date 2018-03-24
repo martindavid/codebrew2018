@@ -3,13 +3,18 @@
   "name": "iFuture",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "icon-144x144.png",
+      "sizes": "144x144",
       "type": "image/png"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#ff567e",
-  "background_color": "#ffffff"
+  "theme_color": "#9e002a",
+  "background_color": "#d60b52"
 }

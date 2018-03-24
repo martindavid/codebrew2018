@@ -1,4 +1,6 @@
+// @flow
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
 import HomeIcon from 'grommet/components/icons/base/Home';
@@ -7,62 +9,135 @@ import PieChartIcon from 'grommet/components/icons/base/PieChart';
 import UserIcon from 'grommet/components/icons/base/User';
 import styled from 'styled-components';
 
+type Props = {
+  history: Object,
+};
 
 const MenuBox = styled.div`
   padding: 10px;
   width: 100%;
   text-align: center;
-  background-color: #ff567e;
-
-  &:hover {
-    background-color: grey;
-  }
+  background-color: #d60b52;
 `;
 
 class FooterMenu extends Component {
   componentWillMount() {}
 
+  props: Props;
+
+  renderHomeMenu = ({ match }) => {
+    if (match) {
+      return (
+        <Anchor
+          icon={<HomeIcon style={{ stroke: 'rgba(255, 255, 255, 1)' }} />}
+          onClick={() => {
+            this.props.history.push('/yp');
+          }}
+        />
+      );
+    }
+    return (
+      <Anchor
+        icon={<HomeIcon style={{ stroke: 'rgba(255, 255, 255, 0.5)' }} />}
+        onClick={() => {
+          this.props.history.push('/yp');
+        }}
+      />
+    );
+  };
+
+  renderCourseMenu = ({ match }) => {
+    if (match) {
+      return (
+        <Anchor
+          icon={<BookIcon style={{ stroke: 'rgba(255, 255, 255, 1)' }} />}
+          onClick={() => {
+            this.props.history.push('/yp/course');
+          }}
+        />
+      );
+    }
+    return (
+      <Anchor
+        icon={<BookIcon style={{ stroke: 'rgba(255, 255, 255, 0.5)' }} />}
+        onClick={() => {
+          this.props.history.push('/yp/course');
+        }}
+      />
+    );
+  };
+
+  renderProgressMenu = ({ match }) => {
+    if (match) {
+      return (
+        <Anchor
+          icon={<PieChartIcon style={{ stroke: 'rgba(255, 255, 255, 1)' }} />}
+          onClick={() => {
+            this.props.history.push('/yp/progress');
+          }}
+        />
+      );
+    }
+    return (
+      <Anchor
+        icon={<PieChartIcon style={{ stroke: 'rgba(255, 255, 255, 0.5)' }} />}
+        onClick={() => {
+          this.props.history.push('/yp/progress');
+        }}
+      />
+    );
+  };
+
+  renderProfileMenu = ({ match }) => {
+    if (match) {
+      return (
+        <Anchor
+          icon={<UserIcon style={{ stroke: 'rgba(255, 255, 255, 1)' }} />}
+          onClick={() => {
+            this.props.history.push('/yp/profile');
+          }}
+        />
+      );
+    }
+    return (
+      <Anchor
+        icon={<UserIcon style={{ stroke: 'rgba(255, 255, 255, 0.5)' }} />}
+        onClick={() => {
+          this.props.history.push('/yp/profile');
+        }}
+      />
+    );
+  };
+
   render() {
     const { history } = this.props;
 
     return (
-
       <Box
         direction="row"
         responsive={false}
         style={{
- position: 'fixed', bottom: 0, width: '100%', height: '65px',
-}}
-        // justify="between"
-        // pad={{ between: 'medium' }}
+          position: 'fixed',
+          bottom: 0,
+          width: '100%',
+          height: '65px',
+          backgroundColor: '#d60b52',
+          boxShadow: '0 -2px 4px 0 rgba(0, 0, 0, 0.2), 0 -2px 4px 0 rgba(0, 0, 0, 0.2)',
+        }}
       >
         <MenuBox>
-          <Anchor
-            href="#"
-            icon={<HomeIcon />}
-            onClick={() => { history.push('/yp'); }}
-          />
+          <Route exact path="/yp">
+            {this.renderHomeMenu}
+          </Route>
         </MenuBox>
         <MenuBox>
-          <Anchor
-            href="#"
-            icon={<BookIcon />}
-            onClick={() => { history.push('/yp/course'); }}
-          />
+          <Route path="/yp/course">{this.renderCourseMenu}</Route>
         </MenuBox>
         <MenuBox>
-          <Anchor
-            href="#"
-            icon={<PieChartIcon />}
-            onClick={() => { history.push('/yp/progress'); }}
-          />
+          <Route path="/yp/progress">{this.renderProgressMenu}</Route>
         </MenuBox>
         <MenuBox>
-          <Anchor
-            href="#"
-            icon={<UserIcon />}
-            onClick={() => { history.push('/yp/profile'); }}
-          />
+          <Route path="/yp/profile">{this.renderProfileMenu}</Route>
         </MenuBox>
       </Box>
     );

@@ -14,8 +14,7 @@ const ContentDiv = styled.div`
   margin-top: 65px;
 `;
 
-
-const YoungPeopleView = ({ history }) => (
+const YoungPeopleView = ({ history, match }) => (
   <Box full>
     <Header label="iFuture" />
     <ContentDiv>
@@ -26,7 +25,7 @@ const YoungPeopleView = ({ history }) => (
       </Switch>
     </ContentDiv>
     <Box align="stretch" justify="end" flex="grow">
-      <FooterMenu history={history} />
+      <FooterMenu history={history} match={match} />
     </Box>
   </Box>
 );
