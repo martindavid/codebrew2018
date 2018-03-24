@@ -31,7 +31,7 @@ class GetStartedEducationLevel extends Component {
       <Box full pad="large">
         <Heading>Education</Heading>
         <Box flex="grow" justify="center">
-          <Label>What is your last education level?</Label>
+          <Label>Which subjects do you feel interested in?</Label>
           <Box pad={{ between: 'small' }}>
             {options.map(el => (
               <CheckBox
@@ -49,7 +49,10 @@ class GetStartedEducationLevel extends Component {
         </Box>
         <Box pad={{ between: 'small' }}>
           <Button primary label="Next" onClick={this.submit} />
-          <Button label="Previous" onClick={() => {}} />
+          <Button
+            label="Previous"
+            onClick={() => this.props.history.push(routes.getStartedEducationLevel)}
+          />
         </Box>
       </Box>
     );

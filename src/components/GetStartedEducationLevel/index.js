@@ -66,7 +66,10 @@ class GetStartedEducationLevel extends Component {
         </Box>
         <Box pad={{ between: 'small' }}>
           <Button primary label="Next" onClick={this.submit} />
-          <Button label="Previous" onClick={() => {}} />
+          <Button
+            label="Previous"
+            onClick={() => this.props.history.push(routes.getStartedDemographic)}
+          />
         </Box>
       </Box>
     );
