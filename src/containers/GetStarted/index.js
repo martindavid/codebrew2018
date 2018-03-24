@@ -6,6 +6,8 @@ import { Switch, Route } from 'react-router-dom';
 import GetStartedWelcome from '../../components/GetStartedWelcome';
 import GetStartedDemographic from '../../components/GetStartedDemographic';
 import GetStartedEducationLevel from '../../components/GetStartedEducationLevel';
+import GetStartedSubjects from '../../components/GetStartedSubjects';
+import GetStartedMatch from '../../components/GetStartedMatch';
 import { routes } from '../../utils/routes';
 
 class GetStarted extends Component {
@@ -25,12 +27,16 @@ class GetStarted extends Component {
   state = {
     countries: [],
     languages: [],
-    role: undefined,
     profile: undefined,
   };
 
   setRole = (role) => {
-    this.setState({ role });
+    this.setState({
+      profile: {
+        ...this.state.profile,
+        role,
+      },
+    });
   };
 
   setProfile = (profile) => {
@@ -42,6 +48,15 @@ class GetStarted extends Component {
       profile: {
         ...this.state.profile,
         education,
+      },
+    });
+  };
+
+  setSubjects = (subjects) => {
+    this.setState({
+      profile: {
+        ...this.state.profile,
+        subjects,
       },
     });
   };
@@ -68,15 +83,24 @@ class GetStarted extends Component {
     />
   );
 
-  renderEducationLevel = routeProps => (
+  renderGetStartedEducationLevel = routeProps => (
     <GetStartedEducationLevel setEducation={this.setEducation} {...routeProps} />
+  );
+
+  renderGetStartedSubjects = routeProps => (
+    <GetStartedSubjects setSubjects={this.setSubjects} {...routeProps} />
   );
 
   render() {
     return (
       <Switch>
         <Route path={routes.getStartedDemographic} render={this.renderGetStartedDemographic} />
-        <Route path={routes.getStartedEducationLevel} render={this.renderEducationLevel} />
+        <Route
+          path={routes.getStartedEducationLevel}
+          render={this.renderGetStartedEducationLevel}
+        />
+        <Route path={routes.getStartedSubjects} render={this.renderGetStartedSubjects} />
+        <Route path={routes.getStartedMatch} component={GetStartedMatch} />
         <Route path={routes.getStarted} render={this.renderGetStartedWelcome} />
       </Switch>
     );

@@ -34,48 +34,46 @@ function GetStartedDemographic(props: Props) {
   } = props;
 
   return (
-    <Box
-      full
-      justify="center"
-      pad={{ vertical: 'medium', horizontal: 'medium', between: 'medium' }}
-    >
-      <Box align="center" pad={{ between: 'medium' }}>
-        <Icon src={ProfileIcon} />
-        <Heading align="center">Profile</Heading>
-      </Box>
-      <Form>
-        <FormFields>
-          <FormField label="Age" error={touched.age && errors.age && errors.age}>
-            <Field name="age" type="number" />
-          </FormField>
-          <FormField label="Country" error={touched.country && errors.country && errors.country}>
-            <TextInput
-              suggestions={countries.filter(el =>
-                el.toLowerCase().includes(values.country.toLowerCase()))}
-              value={values.country}
-              onDOMChange={e => setFieldValue('country', e.target.value)}
-              onSelect={e => setFieldValue('country', e.suggestion)}
-            />
-          </FormField>
-          <FormField
-            label="Language Spoken"
-            error={touched.language && errors.language && errors.language}
-          >
-            <TextInput
-              suggestions={languages.filter(el =>
-                el.toLowerCase().includes(values.language.toLowerCase()))}
-              value={values.language}
-              onDOMChange={e => setFieldValue('language', e.target.value)}
-              onSelect={e => setFieldValue('language', e.suggestion)}
-            />
-          </FormField>
-        </FormFields>
-        <Box pad={{ between: 'small' }} margin={{ top: 'medium' }}>
+    <Form style={{ minHeight: '100vh' }}>
+      <Box full pad="large">
+        <Box align="center" pad={{ between: 'medium' }}>
+          <Icon src={ProfileIcon} />
+          <Heading align="center">Profile</Heading>
+        </Box>
+        <Box flex="grow" justify="center">
+          <FormFields>
+            <FormField label="Age" error={touched.age && errors.age && errors.age}>
+              <Field name="age" type="number" />
+            </FormField>
+            <FormField label="Country" error={touched.country && errors.country && errors.country}>
+              <TextInput
+                suggestions={countries.filter(el =>
+                  el.toLowerCase().includes(values.country.toLowerCase()))}
+                value={values.country}
+                onDOMChange={e => setFieldValue('country', e.target.value)}
+                onSelect={e => setFieldValue('country', e.suggestion)}
+              />
+            </FormField>
+            <FormField
+              label="Language Spoken"
+              error={touched.language && errors.language && errors.language}
+            >
+              <TextInput
+                suggestions={languages.filter(el =>
+                  el.toLowerCase().includes(values.language.toLowerCase()))}
+                value={values.language}
+                onDOMChange={e => setFieldValue('language', e.target.value)}
+                onSelect={e => setFieldValue('language', e.suggestion)}
+              />
+            </FormField>
+          </FormFields>
+        </Box>
+        <Box pad={{ between: 'small' }}>
           <Button primary label="Next" type="submit" />
           <Button label="Cancel" onClick={() => props.history.push(routes.getStarted)} />
         </Box>
-      </Form>
-    </Box>
+      </Box>
+    </Form>
   );
 }
 
