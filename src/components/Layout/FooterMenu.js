@@ -47,7 +47,7 @@ class FooterMenu extends Component {
           <Anchor
             href="#"
             icon={<BookIcon />}
-            onClick={() => { history.push('/yp/course'); }}
+            onClick={() => { history.push('/yp/course-list'); }}
           />
         </MenuBox>
         <MenuBox>

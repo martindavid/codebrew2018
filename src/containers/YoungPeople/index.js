@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
@@ -8,6 +10,12 @@ import Home from './Home';
 import CourseList from './CourseList';
 import Progress from './Progress';
 import FooterMenu from '../../components/Layout/FooterMenu';
+import CourseDetail from '../../components/Course/DetailPage';
+
+
+type Props = {
+  history: Object
+}
 
 const ContentDiv = styled.div`
   margin-bottom: 50px;
@@ -15,13 +23,14 @@ const ContentDiv = styled.div`
 `;
 
 
-const YoungPeopleView = ({ history }) => (
+const YoungPeopleView = ({ history }: Props) => (
   <Box full>
     <Header label="iFuture" />
     <ContentDiv>
       <Switch>
         <Route path="/yp" exact component={Home} />
-        <Route path="/yp/course" component={CourseList} />
+        <Route path="/yp/course-list" component={CourseList} />
+        <Route path="/yp/course/:id" component={CourseDetail} />
         <Route path="/yp/progress" component={Progress} />
       </Switch>
     </ContentDiv>
