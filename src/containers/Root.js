@@ -41,7 +41,7 @@ class Root extends Component {
       <Switch key="content">
         <Route path={routes.login} />
         <Route path={routes.register} />
-        <Route path={routes.home} component={Header} />
+        <Route path={routes.home} />
       </Switch>,
     ];
   }
