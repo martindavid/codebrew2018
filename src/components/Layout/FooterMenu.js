@@ -7,6 +7,7 @@ import PieChartIcon from 'grommet/components/icons/base/PieChart';
 import UserIcon from 'grommet/components/icons/base/User';
 import styled from 'styled-components';
 
+
 const MenuBox = styled.div`
   padding: 10px;
   width: 100%;
@@ -29,7 +30,9 @@ class FooterMenu extends Component {
       <Box
         direction="row"
         responsive={false}
-        style={{ position: 'fixed', bottom: 0, width: '100%' }}
+        style={{
+ position: 'fixed', bottom: 0, width: '100%', height: '65px',
+}}
         // justify="between"
         // pad={{ between: 'medium' }}
       >
