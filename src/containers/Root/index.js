@@ -7,6 +7,7 @@ import PageLoading from '../../components/PageLoading';
 import Alert from '../../components/Alert';
 import Login from '../../components/Login';
 import Register from '../../components/Register';
+import GetStarted from '../GetStarted';
 import { routes } from '../../utils//routes';
 import YoungPeopleView from '../YoungPeople';
 
@@ -31,7 +32,7 @@ class Root extends Component {
             if (doc.data().hasProfile) {
               // Go to main
             } else {
-              // Go to get started
+              this.props.history.push(routes.getStarted);
             }
           })
           .catch(() => {
@@ -62,6 +63,7 @@ class Root extends Component {
         <Switch key="content">
           <Route path={routes.login} component={Login} />
           <Route path={routes.register} component={Register} />
+          <Route path={routes.getStarted} component={GetStarted} />
           <Route path={routes.yp} component={YoungPeopleView} />
           <Route path={routes.home} />
         </Switch>
