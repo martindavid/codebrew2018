@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
@@ -12,6 +12,7 @@ import ProIcon from '../../assets/pro-icon.png';
 
 type Props = {
   history: Object,
+  setRole: string => void,
 };
 
 const Icon = styled(Image)`
@@ -19,28 +20,42 @@ const Icon = styled(Image)`
   width: 100px;
 `;
 
-function GetStartedWelcome(props: Props) {
-  return (
-    <Box full align="center" justify="center">
-      <Heading margin="large" align="center" strong>
-        I am a
-      </Heading>
-      <Box pad={{ between: 'medium' }}>
-        <Animate enter={{ animation: 'fade', duration: 1000, delay: 0 }}>
-          <Box align="center" onClick={() => props.history.push(routes.getStartedDemographic)}>
-            <Icon src={YPIcon} />
-            <Label>Student</Label>
-          </Box>
-        </Animate>
-        <Animate enter={{ animation: 'fade', duration: 1000, delay: 0 }}>
-          <Box align="center" onClick={() => props.history.push(routes.getStartedDemographic)}>
-            <Icon src={ProIcon} />
-            <Label>Professional</Label>
-          </Box>
-        </Animate>
+class GetStartedWelcome extends Component {
+  onYPClicked = () => {
+    this.props.setRole('yp');
+    this.props.history.push(routes.getStartedDemographic);
+  };
+
+  onProClicked = () => {
+    this.props.setRole('pro');
+    this.props.history.push(routes.getStartedDemographic);
+  };
+
+  props: Props;
+
+  render() {
+    return (
+      <Box full align="center" justify="center">
+        <Heading margin="large" align="center" strong>
+          I am a
+        </Heading>
+        <Box pad={{ between: 'medium' }}>
+          <Animate enter={{ animation: 'fade', duration: 1000, delay: 0 }}>
+            <Box align="center" onClick={this.onYPClicked}>
+              <Icon src={YPIcon} />
+              <Label>Student</Label>
+            </Box>
+          </Animate>
+          <Animate enter={{ animation: 'fade', duration: 1000, delay: 0 }}>
+            <Box align="center" onClick={this.onProClicked}>
+              <Icon src={ProIcon} />
+              <Label>Professional</Label>
+            </Box>
+          </Animate>
+        </Box>
       </Box>
-    </Box>
-  );
+    );
+  }
 }
 
 export default GetStartedWelcome;
