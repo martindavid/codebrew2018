@@ -20,11 +20,27 @@ class Root extends Component {
     super(props);
 
     firebase.auth().onAuthStateChanged((user) => {
-      this.setState({ loading: false });
       if (user) {
-        // Do something
+        const db = firebase.firestore();
+        db
+          .collection('users')
+          .doc(user.uid)
+          .get()
+          .then((doc) => {
+            this.setState({ loading: false });
+            if (doc.data().hasProfile) {
+              // Go to main
+            } else {
+              // Go to get started
+            }
+          })
+          .catch(() => {
+            this.setState({ loading: false });
+            this.props.history.push(routes.login);
+          });
       } else {
-        // this.props.history.push(routes.login);
+        this.setState({ loading: false });
+        this.props.history.push(routes.login);
       }
     });
   }
