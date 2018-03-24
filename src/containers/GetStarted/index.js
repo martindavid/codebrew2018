@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import * as firebase from 'firebase';
 import { Switch, Route } from 'react-router-dom';
 import GetStartedWelcome from '../../components/GetStartedWelcome';
 import GetStartedDemographic from '../../components/GetStartedDemographic';
@@ -23,12 +24,36 @@ class GetStarted extends Component {
   state = {
     countries: [],
     languages: [],
+    role: undefined,
+    profile: undefined,
   };
+
+  setRole = (role) => {
+    this.setState({ role });
+  };
+
+  setProfile = (profile) => {
+    this.setState({ profile });
+  };
+
+  submit = () => {
+    const user = firebase.auth().currentUser;
+    const db = firebase.firestore();
+    db
+      .collection('profiles')
+      .doc(user.uid)
+      .set(this.state.profile);
+  };
+
+  renderGetStartedWelcome = routeProps => (
+    <GetStartedWelcome setRole={this.setRole} {...routeProps} />
+  );
 
   renderGetStartedDemographic = routeProps => (
     <GetStartedDemographic
       countries={this.state.countries}
       languages={this.state.languages}
+      setProfile={this.setProfile}
       {...routeProps}
     />
   );
@@ -38,7 +63,7 @@ class GetStarted extends Component {
       <Switch>
         <Route path={routes.getStartedDemographic} render={this.renderGetStartedDemographic} />
         <Route path={routes.getStartedYP} component={GetStartedYP} />
-        <Route path={routes.getStarted} component={GetStartedWelcome} />
+        <Route path={routes.getStarted} render={this.renderGetStartedWelcome} />
       </Switch>
     );
   }

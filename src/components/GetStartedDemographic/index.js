@@ -15,9 +15,11 @@ import { routes, routeForGetStartedYP } from '../../utils/routes';
 
 type Props = {
   countries: Array<string>,
+  errors: Object,
   history: Object,
   languages: Array<string>,
   setFieldValue: (string, any) => void,
+  touched: Object,
   values: Object,
 };
 
@@ -28,7 +30,7 @@ const Icon = styled(Image)`
 
 function GetStartedDemographic(props: Props) {
   const {
-    countries, languages, setFieldValue, values,
+    countries, errors, languages, setFieldValue, touched, values,
   } = props;
 
   return (
@@ -43,10 +45,10 @@ function GetStartedDemographic(props: Props) {
       </Box>
       <Form>
         <FormFields>
-          <FormField label="Age">
+          <FormField label="Age" error={touched.age && errors.age && errors.age}>
             <Field name="age" type="text" />
           </FormField>
-          <FormField label="Country">
+          <FormField label="Country" error={touched.country && errors.country && errors.country}>
             <TextInput
               suggestions={countries.filter(el =>
                 el.toLowerCase().includes(values.country.toLowerCase()))}
@@ -55,7 +57,10 @@ function GetStartedDemographic(props: Props) {
               onSelect={e => setFieldValue('country', e.suggestion)}
             />
           </FormField>
-          <FormField label="Language Spoken">
+          <FormField
+            label="Language Spoken"
+            error={touched.language && errors.language && errors.language}
+          >
             <TextInput
               suggestions={languages.filter(el =>
                 el.toLowerCase().includes(values.language.toLowerCase()))}
@@ -66,11 +71,7 @@ function GetStartedDemographic(props: Props) {
           </FormField>
         </FormFields>
         <Box pad={{ between: 'small' }} margin={{ top: 'medium' }}>
-          <Button
-            primary
-            label="Next"
-            onClick={() => props.history.push(routeForGetStartedYP(1))}
-          />
+          <Button primary label="Next" type="submit" />
           <Button label="Cancel" onClick={() => props.history.push(routes.getStarted)} />
         </Box>
       </Form>
@@ -90,7 +91,10 @@ const validationSchema = Yup.object().shape({
   language: Yup.string().required('Required'),
 });
 
-const handleSubmit = (values) => {};
+const handleSubmit = (values, { props }) => {
+  props.setProfile(values);
+  props.history.push(routeForGetStartedYP(1));
+};
 
 export default withFormik({
   mapPropsToValues,
