@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const CourseList = () => (
   <CustomCard>
-    <Link to="/yp/course/1">
+    <Link to="/yp/course-list/1">
       <CourseCard backgroundColor="#00BCD4" />
     </Link>
     <CourseCard backgroundColor="#E6EE9C" />
