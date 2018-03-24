@@ -23,7 +23,7 @@ class Root extends Component {
       if (user) {
         // Do something
       } else {
-        this.props.history.push(routes.login);
+        // this.props.history.push(routes.login);
       }
     });
   }
