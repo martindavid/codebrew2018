@@ -8,6 +8,7 @@ import Alert from '../../components/Alert';
 import Login from '../../components/Login';
 import Register from '../../components/Register';
 import { routes } from '../../utils//routes';
+import YoungPeopleView from '../YoungPeople';
 
 type Props = {
   history: Object,
@@ -23,7 +24,7 @@ class Root extends Component {
       if (user) {
         // Do something
       } else {
-        this.props.history.push(routes.login);
+        // this.props.history.push(routes.login);
       }
     });
   }
@@ -45,6 +46,7 @@ class Root extends Component {
         <Switch key="content">
           <Route path={routes.login} component={Login} />
           <Route path={routes.register} component={Register} />
+          <Route path={routes.yp} component={YoungPeopleView} />
           <Route path={routes.home} />
         </Switch>
       </App>
