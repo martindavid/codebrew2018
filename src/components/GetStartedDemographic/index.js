@@ -11,7 +11,7 @@ import FormField from 'grommet/components/FormField';
 import TextInput from 'grommet/components/TextInput';
 import Button from 'grommet/components/Button';
 import ProfileIcon from '../../assets/profile-icon.png';
-import { routes, routeForGetStartedYP } from '../../utils/routes';
+import { routes } from '../../utils/routes';
 
 type Props = {
   countries: Array<string>,
@@ -46,7 +46,7 @@ function GetStartedDemographic(props: Props) {
       <Form>
         <FormFields>
           <FormField label="Age" error={touched.age && errors.age && errors.age}>
-            <Field name="age" type="text" />
+            <Field name="age" type="number" />
           </FormField>
           <FormField label="Country" error={touched.country && errors.country && errors.country}>
             <TextInput
@@ -86,14 +86,17 @@ const mapPropsToValues = () => ({
 });
 
 const validationSchema = Yup.object().shape({
-  age: Yup.string().required('Required'),
+  age: Yup.number()
+    .min('12', 'Min 12 years old')
+    .max('17', 'Max 17 years old')
+    .required('Required'),
   country: Yup.string().required('Required'),
   language: Yup.string().required('Required'),
 });
 
 const handleSubmit = (values, { props }) => {
   props.setProfile(values);
-  props.history.push(routeForGetStartedYP(1));
+  props.history.push(routes.getStartedEducationLevel);
 };
 
 export default withFormik({

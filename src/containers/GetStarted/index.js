@@ -1,10 +1,11 @@
 // @flow
 import React, { Component } from 'react';
+import _ from 'lodash';
 import * as firebase from 'firebase';
 import { Switch, Route } from 'react-router-dom';
 import GetStartedWelcome from '../../components/GetStartedWelcome';
 import GetStartedDemographic from '../../components/GetStartedDemographic';
-import GetStartedYP from '../../components/GetStartedYP';
+import GetStartedEducationLevel from '../../components/GetStartedEducationLevel';
 import { routes } from '../../utils/routes';
 
 class GetStarted extends Component {
@@ -16,7 +17,7 @@ class GetStarted extends Component {
       .then((res) => {
         this.setState({
           countries: res.map(el => el.name),
-          languages: res.map(el => el.languages[0].name),
+          languages: _.uniqBy(res.map(el => el.languages[0].name), e => e),
         });
       });
   }
@@ -34,6 +35,15 @@ class GetStarted extends Component {
 
   setProfile = (profile) => {
     this.setState({ profile });
+  };
+
+  setEducation = (education) => {
+    this.setState({
+      profile: {
+        ...this.state.profile,
+        education,
+      },
+    });
   };
 
   submit = () => {
@@ -58,11 +68,15 @@ class GetStarted extends Component {
     />
   );
 
+  renderEducationLevel = routeProps => (
+    <GetStartedEducationLevel setEducation={this.setEducation} {...routeProps} />
+  );
+
   render() {
     return (
       <Switch>
         <Route path={routes.getStartedDemographic} render={this.renderGetStartedDemographic} />
-        <Route path={routes.getStartedYP} component={GetStartedYP} />
+        <Route path={routes.getStartedEducationLevel} render={this.renderEducationLevel} />
         <Route path={routes.getStarted} render={this.renderGetStartedWelcome} />
       </Switch>
     );
