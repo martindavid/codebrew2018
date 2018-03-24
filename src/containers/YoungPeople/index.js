@@ -10,7 +10,7 @@ import Home from './Home';
 import CourseList from './CourseList';
 import Progress from './Progress';
 import FooterMenu from '../../components/Layout/FooterMenu';
-
+import BgImage from '../../assets/home-page-bg.png';
 
 const HeaderStyled = styled(Header)`
  background-color: #d60b52;

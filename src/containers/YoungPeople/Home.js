@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Box from 'grommet/components/Box';
 
 import TutorCard from '../../components/Dashboard/TutorCard';
 import CourseList from '../../components/Dashboard/CourseList';
@@ -13,8 +12,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <TutorCard />
         <ActionChecklist />
+        <TutorCard />
         <CourseList />
       </div>
     );
