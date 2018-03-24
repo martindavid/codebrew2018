@@ -30,7 +30,11 @@ class Root extends Component {
           .then((doc) => {
             this.setState({ loading: false });
             if (doc.data().hasProfile) {
-              // Go to main
+              if (doc.data().role === 'yp') {
+                this.props.history.push(routes.yp);
+              } else {
+                this.props.history.push(routes.pro);
+              }
             } else {
               this.props.history.push(routes.getStarted);
             }

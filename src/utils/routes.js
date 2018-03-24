@@ -7,6 +7,7 @@ export const routes = {
   getStartedPro: '/get-started/pro',
   home: '/',
   yp: '/yp',
+  pro: '/pro',
 };
 
 export function routeForGetStartedYP(step) {
