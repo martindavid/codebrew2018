@@ -40,7 +40,12 @@ class GetStarted extends Component {
   };
 
   setProfile = (profile) => {
-    this.setState({ profile });
+    this.setState({
+      profile: {
+        ...this.state.profile,
+        ...profile,
+      },
+    });
   };
 
   setEducation = (education) => {
@@ -63,11 +68,15 @@ class GetStarted extends Component {
 
   submit = () => {
     const user = firebase.auth().currentUser;
+    const input = {
+      ...this.state.profile,
+      hasProfile: true,
+    };
     const db = firebase.firestore();
     db
-      .collection('profiles')
+      .collection('users')
       .doc(user.uid)
-      .set(this.state.profile);
+      .update(input);
   };
 
   renderGetStartedWelcome = routeProps => (
@@ -91,6 +100,10 @@ class GetStarted extends Component {
     <GetStartedSubjects setSubjects={this.setSubjects} {...routeProps} />
   );
 
+  renderGetStartedMatch = routeProps => (
+    <GetStartedMatch submit={this.submit} role={this.state.profile.role} {...routeProps} />
+  );
+
   render() {
     return (
       <Switch>
@@ -100,7 +113,7 @@ class GetStarted extends Component {
           render={this.renderGetStartedEducationLevel}
         />
         <Route path={routes.getStartedSubjects} render={this.renderGetStartedSubjects} />
-        <Route path={routes.getStartedMatch} component={GetStartedMatch} />
+        <Route path={routes.getStartedMatch} render={this.renderGetStartedMatch} />
         <Route path={routes.getStarted} render={this.renderGetStartedWelcome} />
       </Switch>
     );
