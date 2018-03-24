@@ -52,7 +52,7 @@ class FooterMenu extends Component {
         <Anchor
           icon={<BookIcon style={{ stroke: 'rgba(255, 255, 255, 1)' }} />}
           onClick={() => {
-            this.props.history.push('/yp/course');
+            this.props.history.push('/yp/course-list');
           }}
         />
       );
@@ -61,7 +61,7 @@ class FooterMenu extends Component {
       <Anchor
         icon={<BookIcon style={{ stroke: 'rgba(255, 255, 255, 0.5)' }} />}
         onClick={() => {
-          this.props.history.push('/yp/course');
+          this.props.history.push('/yp/course-list');
         }}
       />
     );
@@ -131,7 +131,7 @@ class FooterMenu extends Component {
           </Route>
         </MenuBox>
         <MenuBox>
-          <Route path="/yp/course">{this.renderCourseMenu}</Route>
+          <Route path="/yp/course-list">{this.renderCourseMenu}</Route>
         </MenuBox>
         <MenuBox>
           <Route path="/yp/progress">{this.renderProgressMenu}</Route>
