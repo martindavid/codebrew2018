@@ -6,6 +6,8 @@ import App from 'grommet/components/App';
 import PageLoading from '../../components/PageLoading';
 import Alert from '../../components/Alert';
 import Login from '../../components/Login';
+import Register from '../../components/Register';
+import GetStarted from '../GetStarted';
 import { routes } from '../../utils//routes';
 import YoungPeopleView from '../YoungPeople';
 
@@ -19,11 +21,27 @@ class Root extends Component {
     super(props);
 
     firebase.auth().onAuthStateChanged((user) => {
-      this.setState({ loading: false });
       if (user) {
-        // Do something
+        const db = firebase.firestore();
+        db
+          .collection('users')
+          .doc(user.uid)
+          .get()
+          .then((doc) => {
+            this.setState({ loading: false });
+            if (doc.data().hasProfile) {
+              // Go to main
+            } else {
+              this.props.history.push(routes.getStarted);
+            }
+          })
+          .catch(() => {
+            this.setState({ loading: false });
+            this.props.history.push(routes.login);
+          });
       } else {
-        // this.props.history.push(routes.login);
+        this.setState({ loading: false });
+        this.props.history.push(routes.login);
       }
     });
   }
@@ -44,7 +62,8 @@ class Root extends Component {
         <Alert key="alert" pathname={this.props.location.pathname} />
         <Switch key="content">
           <Route path={routes.login} component={Login} />
-          <Route path={routes.register} />
+          <Route path={routes.register} component={Register} />
+          <Route path={routes.getStarted} component={GetStarted} />
           <Route path={routes.yp} component={YoungPeopleView} />
           <Route path={routes.home} />
         </Switch>
