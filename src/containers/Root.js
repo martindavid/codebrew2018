@@ -5,6 +5,7 @@ import * as firebase from 'firebase';
 import PageLoading from '../components/PageLoading';
 import Alert from '../components/Alert';
 import { routes } from '../utils//routes';
+import Header from '../components/Layout/Header';
 
 type Props = {
   location: Object,
@@ -40,7 +41,7 @@ class Root extends Component {
       <Switch key="content">
         <Route path={routes.login} />
         <Route path={routes.register} />
-        <Route path={routes.home} />
+        <Route path={routes.home} component={Header} />
       </Switch>,
     ];
   }

@@ -14,10 +14,7 @@ import registerServiceWorker from './registerServiceWorker';
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <MuiThemeProvider theme={theme}>
-        <CssBaseline />
-        <Root />
-      </MuiThemeProvider>
+      <Root />
     </Provider>
   </BrowserRouter>,
   document.getElementById('root'),
