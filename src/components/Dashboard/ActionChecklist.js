@@ -1,6 +1,5 @@
 import React from 'react';
 import Box from 'grommet/components/Box';
-import CheckBox from 'grommet/components/CheckBox';
 import CustomCard from '../../components/Layout/Card';
 
 import './checkbox.css';
