@@ -2,12 +2,15 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import * as firebase from 'firebase';
+import App from 'grommet/components/App';
 import PageLoading from '../../components/PageLoading';
 import Alert from '../../components/Alert';
+import Login from '../../components/Login';
 import { routes } from '../../utils//routes';
 import YoungPeopleView from '../YoungPeople';
 
 type Props = {
+  history: Object,
   location: Object,
 };
 
@@ -20,7 +23,7 @@ class Root extends Component {
       if (user) {
         // Do something
       } else {
-        // Do something
+        this.props.history.push(routes.login);
       }
     });
   }
@@ -36,15 +39,17 @@ class Root extends Component {
       return <PageLoading />;
     }
 
-    return [
-      <Alert key="alert" pathname={this.props.location.pathname} />,
-      <Switch key="content">
-        <Route path={routes.login} />
-        <Route path={routes.register} />
-        <Route path={routes.yp} component={YoungPeopleView} />
-        <Route path={routes.home} />
-      </Switch>,
-    ];
+    return (
+      <App centered={false}>
+        <Alert key="alert" pathname={this.props.location.pathname} />
+        <Switch key="content">
+          <Route path={routes.login} component={Login} />
+          <Route path={routes.register} />
+          <Route path={routes.yp} component={YoungPeopleView} />
+          <Route path={routes.home} />
+        </Switch>
+      </App>
+    );
   }
 }
 
