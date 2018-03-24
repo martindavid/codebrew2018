@@ -6,6 +6,7 @@ import App from 'grommet/components/App';
 import PageLoading from '../../components/PageLoading';
 import Alert from '../../components/Alert';
 import Login from '../../components/Login';
+import Register from '../../components/Register';
 import { routes } from '../../utils//routes';
 
 type Props = {
@@ -43,7 +44,7 @@ class Root extends Component {
         <Alert key="alert" pathname={this.props.location.pathname} />
         <Switch key="content">
           <Route path={routes.login} component={Login} />
-          <Route path={routes.register} />
+          <Route path={routes.register} component={Register} />
           <Route path={routes.home} />
         </Switch>
       </App>

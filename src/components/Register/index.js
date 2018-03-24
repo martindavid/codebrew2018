@@ -16,7 +16,7 @@ type Props = {
   touched: Object,
 };
 
-function Login(props: Props) {
+function Register(props: Props) {
   const { errors, touched } = props;
   return (
     <Box full justify="center" pad="medium">
@@ -38,6 +38,9 @@ function Login(props: Props) {
           >
             <Field name="password" type="password" />
           </FormField>
+          <FormField label="Name" error={touched.name && errors.name && errors.name}>
+            <Field name="name" type="text" />
+          </FormField>
         </FormFields>
         <Box margin={{ top: 'large' }} pad={{ between: 'medium' }}>
           <Button primary label="Log In" type="submit" />
@@ -51,15 +54,17 @@ function Login(props: Props) {
 const mapPropsToValues = () => ({
   email: '',
   password: '',
+  name: '',
 });
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required('Required'),
   password: Yup.string().required('Required'),
+  name: Yup.string().required('Required'),
 });
 
 const handleSubmit = (values) => {
   // Do something
 };
 
-export default withFormik({ mapPropsToValues, validationSchema, handleSubmit })(Login);
+export default withFormik({ mapPropsToValues, validationSchema, handleSubmit })(Register);
