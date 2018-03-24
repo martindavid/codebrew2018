@@ -1,13 +1,12 @@
 import { createMuiTheme } from 'material-ui/styles';
-import cyan from 'material-ui/colors/cyan';
 import blueGrey from 'material-ui/colors/blueGrey';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: cyan[300],
-      main: cyan[500],
-      dark: cyan[700],
+      light: '##ff567e',
+      main: '#d60b52',
+      dark: '#9e002a',
     },
     secondary: {
       light: blueGrey[300],
