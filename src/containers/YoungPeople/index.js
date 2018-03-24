@@ -11,7 +11,7 @@ import FooterMenu from '../../components/Layout/FooterMenu';
 
 const ContentDiv = styled.div`
   margin-bottom: 50px;
-  margin-top: 50px;
+  margin-top: 65px;
 `;
 
 
