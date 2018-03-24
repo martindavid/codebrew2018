@@ -5,6 +5,7 @@ export const routes = {
   getStartedDemographic: '/get-started/demographic',
   getStartedEducationLevel: '/get-started/education',
   getStartedSubjects: '/get-started/subjects',
+  getStartedMatch: '/get-started/match',
   home: '/',
   yp: '/yp',
   pro: '/pro',

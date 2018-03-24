@@ -6,6 +6,8 @@ import { Switch, Route } from 'react-router-dom';
 import GetStartedWelcome from '../../components/GetStartedWelcome';
 import GetStartedDemographic from '../../components/GetStartedDemographic';
 import GetStartedEducationLevel from '../../components/GetStartedEducationLevel';
+import GetStartedSubjects from '../../components/GetStartedSubjects';
+import GetStartedMatch from '../../components/GetStartedMatch';
 import { routes } from '../../utils/routes';
 
 class GetStarted extends Component {
@@ -25,16 +27,25 @@ class GetStarted extends Component {
   state = {
     countries: [],
     languages: [],
-    role: undefined,
     profile: undefined,
   };
 
   setRole = (role) => {
-    this.setState({ role });
+    this.setState({
+      profile: {
+        ...this.state.profile,
+        role,
+      },
+    });
   };
 
   setProfile = (profile) => {
-    this.setState({ profile });
+    this.setState({
+      profile: {
+        ...this.state.profile,
+        ...profile,
+      },
+    });
   };
 
   setEducation = (education) => {
@@ -46,13 +57,26 @@ class GetStarted extends Component {
     });
   };
 
+  setSubjects = (subjects) => {
+    this.setState({
+      profile: {
+        ...this.state.profile,
+        subjects,
+      },
+    });
+  };
+
   submit = () => {
     const user = firebase.auth().currentUser;
+    const input = {
+      ...this.state.profile,
+      hasProfile: true,
+    };
     const db = firebase.firestore();
     db
-      .collection('profiles')
+      .collection('users')
       .doc(user.uid)
-      .set(this.state.profile);
+      .update(input);
   };
 
   renderGetStartedWelcome = routeProps => (
@@ -68,15 +92,28 @@ class GetStarted extends Component {
     />
   );
 
-  renderEducationLevel = routeProps => (
+  renderGetStartedEducationLevel = routeProps => (
     <GetStartedEducationLevel setEducation={this.setEducation} {...routeProps} />
+  );
+
+  renderGetStartedSubjects = routeProps => (
+    <GetStartedSubjects setSubjects={this.setSubjects} {...routeProps} />
+  );
+
+  renderGetStartedMatch = routeProps => (
+    <GetStartedMatch submit={this.submit} role={this.state.profile.role} {...routeProps} />
   );
 
   render() {
     return (
       <Switch>
         <Route path={routes.getStartedDemographic} render={this.renderGetStartedDemographic} />
-        <Route path={routes.getStartedEducationLevel} render={this.renderEducationLevel} />
+        <Route
+          path={routes.getStartedEducationLevel}
+          render={this.renderGetStartedEducationLevel}
+        />
+        <Route path={routes.getStartedSubjects} render={this.renderGetStartedSubjects} />
+        <Route path={routes.getStartedMatch} render={this.renderGetStartedMatch} />
         <Route path={routes.getStarted} render={this.renderGetStartedWelcome} />
       </Switch>
     );

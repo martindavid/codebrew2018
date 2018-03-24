@@ -89,7 +89,7 @@ const handleSubmit = (values, { props, setSubmitting }) => {
         .doc(user.uid)
         .set(input)
         .then(() => {
-          props.history.push(routes.home);
+          props.history.push(routes.getStarted);
           props.showAlert({
             message: `Hi ${values.name}, welcome to iFuture!`,
             status: 'ok',

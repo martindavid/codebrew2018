@@ -63,8 +63,22 @@ const handleSubmit = (values, { props, setSubmitting }) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(values.email, values.password)
-    .then(() => {
-      props.history.push(routes.home);
+    .then((user) => {
+      const db = firebase.firestore();
+      db
+        .collection('users')
+        .doc(user.uid)
+        .get()
+        .then((doc) => {
+          if (doc.data().hasProfile) {
+            props.history.push(routes.home);
+          } else {
+            props.history.push(routes.getStarted);
+          }
+        })
+        .catch(() => {
+          props.history.push(routes.home);
+        });
     })
     .catch((error) => {
       setSubmitting(false);
