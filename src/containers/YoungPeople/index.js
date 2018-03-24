@@ -12,18 +12,17 @@ import Progress from './Progress';
 import FooterMenu from '../../components/Layout/FooterMenu';
 import CourseDetail from '../../components/Course/DetailPage';
 
-
 type Props = {
-  history: Object
-}
+  history: Object,
+  match: Object,
+};
 
 const ContentDiv = styled.div`
   margin-bottom: 50px;
   margin-top: 65px;
 `;
 
-
-const YoungPeopleView = ({ history }: Props) => (
+const YoungPeopleView = ({ history, match }: Props) => (
   <Box full>
     <Header label="iFuture" />
     <ContentDiv>
@@ -35,7 +34,7 @@ const YoungPeopleView = ({ history }: Props) => (
       </Switch>
     </ContentDiv>
     <Box align="stretch" justify="end" flex="grow">
-      <FooterMenu history={history} />
+      <FooterMenu history={history} match={match} />
     </Box>
   </Box>
 );
