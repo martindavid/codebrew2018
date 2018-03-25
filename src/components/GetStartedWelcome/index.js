@@ -7,8 +7,8 @@ import Label from 'grommet/components/Label';
 import Image from 'grommet/components/Image';
 import Animate from 'grommet/components/Animate';
 import { routes } from '../../utils/routes';
-import YPIcon from '../../assets/yp-icon.png';
-import ProIcon from '../../assets/pro-icon.png';
+import YPIcon from '../../assets/pro-icon.png';
+import ProIcon from '../../assets/yp-icon.png';
 
 type Props = {
   history: Object,
