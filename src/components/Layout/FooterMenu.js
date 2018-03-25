@@ -5,7 +5,7 @@ import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
 import HomeIcon from 'grommet/components/icons/base/Home';
 import BookIcon from 'grommet/components/icons/base/Book';
-import PieChartIcon from 'grommet/components/icons/base/PieChart';
+import TrophyIcon from 'grommet/components/icons/base/Trophy';
 import UserIcon from 'grommet/components/icons/base/User';
 import styled from 'styled-components';
 
@@ -71,7 +71,7 @@ class FooterMenu extends Component {
     if (match) {
       return (
         <Anchor
-          icon={<PieChartIcon style={{ stroke: 'rgba(255, 255, 255, 1)' }} />}
+          icon={<TrophyIcon style={{ stroke: 'rgba(255, 255, 255, 1)' }} />}
           onClick={() => {
             this.props.history.push('/yp/progress');
           }}
@@ -80,7 +80,7 @@ class FooterMenu extends Component {
     }
     return (
       <Anchor
-        icon={<PieChartIcon style={{ stroke: 'rgba(255, 255, 255, 0.5)' }} />}
+        icon={<TrophyIcon style={{ stroke: 'rgba(255, 255, 255, 0.5)' }} />}
         onClick={() => {
           this.props.history.push('/yp/progress');
         }}
