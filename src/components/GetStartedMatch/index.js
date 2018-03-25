@@ -30,7 +30,7 @@ class GetStartedMatch extends Component {
       return <PageLoading />;
     }
 
-    return <Redirect to={this.props.role === 'yp' ? routes.yp : routes.pro} />;
+    return <Redirect to={this.props.role === 'yp' ? routes.ypHome : routes.ypHome} />;
   }
 }
 

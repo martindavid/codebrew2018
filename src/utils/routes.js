@@ -8,6 +8,7 @@ export const routes = {
   getStartedMatch: '/get-started/match',
   home: '/',
   yp: '/yp',
+  ypHome: '/yp/home',
   pro: '/pro',
 };
 

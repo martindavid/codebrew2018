@@ -1,12 +1,15 @@
 import React from 'react';
 import Box from 'grommet/components/Box';
+import Heading from 'grommet/components/Heading';
 import CustomCard from '../../components/Layout/Card';
 
 import './checkbox.css';
 
 const ActionChecklist = () => (
   <CustomCard>
-    <h3>Your Action This Week</h3>
+    <Heading tag="h3" strong>
+      Your Action This Week
+    </Heading>
     <Box pad={{ between: 'medium' }}>
       <ul className="list">
         <li className="list-item">

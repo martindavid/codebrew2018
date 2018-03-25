@@ -1,18 +1,17 @@
 import React from 'react';
+import Box from 'grommet/components/Box';
 import CustomCard from '../Layout/Card';
 import CourseCard from './CourseCard';
-import { Link } from 'react-router-dom';
 
-
-const CourseList = () => (
+const CourseList = props => (
   <CustomCard>
-    <Link to="/yp/course-list/1">
+    <Box onClick={() => props.history.push('/yp/course/1')}>
       <CourseCard
         value={40}
         courseName="Biology 101"
         backgroundColor="#00BCD4"
       />
-    </Link>
+    </Box>
     <CourseCard
       value={100}
       courseName="Robotic 101"
@@ -23,6 +22,7 @@ const CourseList = () => (
       value={70}
       backgroundColor="#C5E1A5"
     />
+    
   </CustomCard>
 );
 

@@ -31,9 +31,9 @@ class Root extends Component {
             this.setState({ loading: false });
             if (doc.data().hasProfile) {
               if (doc.data().role === 'yp') {
-                this.props.history.push(routes.yp);
+                this.props.history.push(routes.ypHome);
               } else {
-                this.props.history.push(routes.pro);
+                this.props.history.push(routes.ypHome);
               }
             } else {
               this.props.history.push(routes.getStarted);
