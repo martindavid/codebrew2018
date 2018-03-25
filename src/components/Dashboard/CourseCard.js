@@ -1,14 +1,13 @@
 import React from 'react';
 import Meter from 'grommet/components/Meter';
 import Value from 'grommet/components/Value';
-import Button from 'grommet/components/Button';
 import styled from 'styled-components';
 
 const CustomMeter = styled(Meter)`
-  margin-top: 20px;
+  margin-top: 12px;
   & > div > div > svg {
-    width: 50px !important;
-    height: 50px !important;
+    width: 64px !important;
+    height: 64px !important;
   }
 `;
 
@@ -17,7 +16,7 @@ const CustomValue = styled(Value)`
     font-size: 10pt;
     font-weight: 10;
     margin-bottom: 12px;
-  } 
+  }
 `;
 
 const CourseCard = ({
@@ -25,25 +24,24 @@ const CourseCard = ({
 }) => (
   <div className="course-card">
     <div className="progress" style={{ backgroundColor }}>
-      { isTaken && <CustomMeter
-        type="circle"
-        size="xsmall"
-        label={<CustomValue
+      {isTaken && (
+        <CustomMeter
+          type="circle"
+          size="xsmall"
+          label={<CustomValue value={value} units="%" />}
           value={value}
-          units="%"
-        />}
-        value={value}
-      />}
-      {
-        !isTaken &&
-          <button
-            style={{ marginTop: '6%', borderColor: '#d60b52' }}
-            href="#"
-            label="Start"
-            type="button"
-          >Start
-          </button>
-      }
+        />
+      )}
+      {!isTaken && (
+        <button
+          style={{ marginTop: '6%', borderColor: '#d60b52' }}
+          href="#"
+          label="Start"
+          type="button"
+        >
+          Start
+        </button>
+      )}
     </div>
     <span className="course-label">Course</span>
     <h4>{courseName}</h4>

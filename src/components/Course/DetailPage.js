@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import CustomCard from '../Layout/Card';
 import Box from 'grommet/components/Box';
-import Checkbox from './Checkbox';
-import Link from 'react-router-dom/Link';
 import Button from 'grommet/components/Button';
 import { Redirect } from 'react-router-dom';
-
+import CustomCard from '../Layout/Card';
 
 const WistiaPaddingStyled = styled.div`
-  padding:56.25% 0 0 0;
-  position:relative;
+  padding: 56.25% 0 0 0;
+  position: relative;
   border: 1px;
   margin-top: 10px;
 `;
 
 const WistiaWrapperStyled = styled.div`
-  height:100%;
-  left:0;
-  position:absolute;
-  top:0;
-  width:100%;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 `;
 
 const StyledCheckbox = styled.input`
@@ -68,8 +65,9 @@ const QuestionOne = () => (
     Question 1
     <br />
     <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat.
     </p>
     <div className="question" style={{ marginBottom: '20px' }}>
       <div className="answer">
@@ -84,7 +82,10 @@ const QuestionOne = () => (
               />
             </Box>
             <Box flex="grow">
-              <label htmlFor="answer1" className="answer-label"> Answer 1</label>
+              <label htmlFor="answer1" className="answer-label">
+                {' '}
+                Answer 1
+              </label>
             </Box>
           </Box>
           <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
@@ -97,7 +98,10 @@ const QuestionOne = () => (
               />
             </Box>
             <Box flex="grow">
-              <label htmlFor="answer2" className="answer-label"> Answer 2</label>
+              <label htmlFor="answer2" className="answer-label">
+                {' '}
+                Answer 2
+              </label>
             </Box>
           </Box>
           <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
@@ -110,7 +114,10 @@ const QuestionOne = () => (
               />
             </Box>
             <Box flex="grow">
-              <label htmlFor="answer3" className="answer-label"> Answer 3</label>
+              <label htmlFor="answer3" className="answer-label">
+                {' '}
+                Answer 3
+              </label>
             </Box>
           </Box>
         </Box>
@@ -124,8 +131,9 @@ const QuestionTwo = () => (
     Question 2
     <br />
     <p>
-    acon ipsum dolor amet ribeye venison cupim, doner leberkas salami shoulder filet mignon alcatra prosciutto pig strip steak.
-    Buffalo bresaola tenderloin, hamburger chuck capicola frankfurter pastrami shankle bacon kielbasa pork belly spare ribs ham hock.
+      acon ipsum dolor amet ribeye venison cupim, doner leberkas salami shoulder filet mignon
+      alcatra prosciutto pig strip steak. Buffalo bresaola tenderloin, hamburger chuck capicola
+      frankfurter pastrami shankle bacon kielbasa pork belly spare ribs ham hock.
     </p>
     <div className="question" style={{ marginBottom: '20px' }}>
       <div className="answer">
@@ -140,7 +148,10 @@ const QuestionTwo = () => (
               />
             </Box>
             <Box flex="grow">
-              <label htmlFor="answer1" className="answer-label"> Answer 1</label>
+              <label htmlFor="answer1" className="answer-label">
+                {' '}
+                Answer 1
+              </label>
             </Box>
           </Box>
           <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
@@ -153,7 +164,10 @@ const QuestionTwo = () => (
               />
             </Box>
             <Box flex="grow">
-              <label htmlFor="answer2" className="answer-label"> Answer 2</label>
+              <label htmlFor="answer2" className="answer-label">
+                {' '}
+                Answer 2
+              </label>
             </Box>
           </Box>
           <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
@@ -166,7 +180,10 @@ const QuestionTwo = () => (
               />
             </Box>
             <Box flex="grow">
-              <label htmlFor="answer3" className="answer-label"> Answer 3</label>
+              <label htmlFor="answer3" className="answer-label">
+                {' '}
+                Answer 3
+              </label>
             </Box>
           </Box>
         </Box>
@@ -180,9 +197,9 @@ const QuestionThree = () => (
     Question 3
     <br />
     <p>
-    Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm.
-    Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper
-    chantey doubloon starboard grog black jack gangway rutters.
+      Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone
+      mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque
+      interloper chantey doubloon starboard grog black jack gangway rutters.
     </p>
     <div className="question" style={{ marginBottom: '20px' }}>
       <div className="answer">
@@ -197,9 +214,11 @@ const QuestionThree = () => (
               />
             </Box>
             <Box flex="grow">
-              <label htmlFor="answer1" className="answer-label"> Answer 1</label>
+              <label htmlFor="answer1" className="answer-label">
+                {' '}
+                Answer 1
+              </label>
             </Box>
-
           </Box>
           <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
             <Box>
@@ -211,7 +230,10 @@ const QuestionThree = () => (
               />
             </Box>
             <Box flex="grow">
-              <label htmlFor="answer2" className="answer-label"> Answer 2</label>
+              <label htmlFor="answer2" className="answer-label">
+                {' '}
+                Answer 2
+              </label>
             </Box>
           </Box>
           <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
@@ -224,7 +246,10 @@ const QuestionThree = () => (
               />
             </Box>
             <Box flex="grow">
-              <label htmlFor="answer3" className="answer-label"> Answer 3</label>
+              <label htmlFor="answer3" className="answer-label">
+                {' '}
+                Answer 3
+              </label>
             </Box>
           </Box>
         </Box>
@@ -232,7 +257,6 @@ const QuestionThree = () => (
     </div>
   </div>
 );
-
 
 class DetailPage extends Component {
   constructor() {
@@ -252,48 +276,53 @@ class DetailPage extends Component {
 
     const { id } = match.params;
 
-
     if (activeQuestion === 4) {
       return <Redirect to={`/yp/course-list/${id}/finish`} />;
     }
 
     return (
       <div>
-        <h2 style={{ marginTop: '10px', marginLeft: '10px', marginBottom: '10px' }}>{parseLabelName(id)}</h2>
+        <h2 style={{ marginTop: '10px', marginLeft: '10px', marginBottom: '10px' }}>
+          {parseLabelName(id)}
+        </h2>
         <Button
           href="#"
           style={{ marginLeft: '10px' }}
           onClick={() => {
-          if (history) {
-            history.push('/yp/course-list');
-          }
-        }}
+            if (history) {
+              history.push('/yp/course-list');
+            }
+          }}
         >
           <i className="fa fa-arrow-left" /> Back
         </Button>
         <WistiaPaddingStyled className="wistia_responsive_padding">
           <WistiaWrapperStyled className="wistia_responsive_wrapper">
-            <div className="wistia_embed wistia_async_u99iorpkld videoFoam=true" style={{ height: '100%', width: '100%' }}>&nbsp;</div>
+            <div
+              className="wistia_embed wistia_async_u99iorpkld videoFoam=true"
+              style={{ height: '100%', width: '100%' }}
+            >
+              &nbsp;
+            </div>
           </WistiaWrapperStyled>
         </WistiaPaddingStyled>
         <br />
         <Box pad="large">
           <CustomCard>
-            { activeQuestion === 1 && <QuestionOne />}
-            { activeQuestion === 2 && <QuestionTwo />}
-            { activeQuestion === 3 && <QuestionThree />}
+            {activeQuestion === 1 && <QuestionOne />}
+            {activeQuestion === 2 && <QuestionTwo />}
+            {activeQuestion === 3 && <QuestionThree />}
             <Box>
               <Button
                 label={activeQuestion === 3 ? 'Finish' : 'Next'}
                 primary={false}
                 secondary={false}
                 onClick={() => {
-                    this.setState({ activeQuestion: this.state.activeQuestion + 1 });
-                  }}
+                  this.setState({ activeQuestion: this.state.activeQuestion + 1 });
+                }}
               />
               <br />
-              {
-                activeQuestion > 1 &&
+              {activeQuestion > 1 && (
                 <Button
                   label="Back"
                   primary={false}
@@ -302,7 +331,7 @@ class DetailPage extends Component {
                     this.setState({ activeQuestion: this.state.activeQuestion - 1 });
                   }}
                 />
-              }
+              )}
             </Box>
           </CustomCard>
         </Box>

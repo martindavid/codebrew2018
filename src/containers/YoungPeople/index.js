@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import Box from 'grommet/components/Box';
 
 import Header from '../../components/Layout/Header';
-import ComingSoon from '../../components/ComingSoon';
 import Home from './Home';
 import CourseList from './CourseList';
 import Leaderboard from '../../components/Leaderboard';
@@ -16,6 +15,7 @@ import MeetingNotes from '../../components/MeetingNotes';
 import MeetingComplete from '../../components/MeetingComplete';
 import bg from '../../assets/bg.png';
 import CourseListComplete from '../../components/CourseListComplete';
+import Profile from '../../components/Profile';
 
 type Props = {
   history: Object,
@@ -55,7 +55,7 @@ const YoungPeopleView = ({ history, location, match }: Props) => {
           <Route path="/yp/course-list/:id" exact component={CourseDetail} />
           <Route path="/yp/course-list/:id/finish" component={CourseListComplete} />
           <Route path="/yp/progress" component={Leaderboard} />
-          <Route path="/yp/profile" component={ComingSoon} />
+          <Route path="/yp/profile" component={Profile} />
         </Switch>
       </ContentDiv>
       <Box align="stretch" justify="end" flex="grow">
