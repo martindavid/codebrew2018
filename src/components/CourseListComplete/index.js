@@ -39,7 +39,7 @@ function CourseListComplete(props: Props) {
           />
         </Box>
         <Box align="center" margin={{ top: 'large' }}>
-          <Button primary label="Next" onClick={() => props.history.push('/yp/home')} />
+          <Button primary label="Ok" onClick={() => props.history.push('/yp/home')} />
         </Box>
       </Animate>
     </Box>

@@ -124,8 +124,8 @@ const QuestionTwo = () => (
     Question 2
     <br />
     <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    acon ipsum dolor amet ribeye venison cupim, doner leberkas salami shoulder filet mignon alcatra prosciutto pig strip steak.
+    Buffalo bresaola tenderloin, hamburger chuck capicola frankfurter pastrami shankle bacon kielbasa pork belly spare ribs ham hock.
     </p>
     <div className="question" style={{ marginBottom: '20px' }}>
       <div className="answer">
@@ -180,8 +180,9 @@ const QuestionThree = () => (
     Question 3
     <br />
     <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm.
+    Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper
+    chantey doubloon starboard grog black jack gangway rutters.
     </p>
     <div className="question" style={{ marginBottom: '20px' }}>
       <div className="answer">
@@ -241,8 +242,8 @@ class DetailPage extends Component {
     };
   }
 
-  componentWillMount() {
-
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   render() {
@@ -253,7 +254,7 @@ class DetailPage extends Component {
 
 
     if (activeQuestion === 4) {
-      return <Redirect to="/yp/course-list/finish" />;
+      return <Redirect to={`/yp/course-list/${id}/finish`} />;
     }
 
     return (
@@ -283,7 +284,7 @@ class DetailPage extends Component {
             { activeQuestion === 3 && <QuestionThree />}
             <Box>
               <Button
-                label="Next"
+                label={activeQuestion === 3 ? 'Finish' : 'Next'}
                 primary={false}
                 secondary={false}
                 onClick={() => {

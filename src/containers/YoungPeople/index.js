@@ -52,8 +52,8 @@ const YoungPeopleView = ({ history, location, match }: Props) => {
           <Route path="/yp/home/complete" component={MeetingComplete} />
           <Route path="/yp/home" component={Home} />
           <Route path="/yp/course-list" exact component={CourseList} />
-          <Route path="/yp/course-list/:id" component={CourseDetail} />
-          <Route path="/yp/course-list/finish" component={CourseListComplete} />
+          <Route path="/yp/course-list/:id" exact component={CourseDetail} />
+          <Route path="/yp/course-list/:id/finish" component={CourseListComplete} />
           <Route path="/yp/progress" component={Leaderboard} />
           <Route path="/yp/profile" component={ComingSoon} />
         </Switch>
