@@ -5,6 +5,7 @@ import Box from 'grommet/components/Box';
 import Checkbox from './Checkbox';
 import Link from 'react-router-dom/Link';
 import Button from 'grommet/components/Button';
+import { Redirect } from 'react-router-dom';
 
 
 const WistiaPaddingStyled = styled.div`
@@ -73,7 +74,7 @@ const QuestionOne = () => (
     <div className="question" style={{ marginBottom: '20px' }}>
       <div className="answer">
         <Box pad={{ between: 'medium' }}>
-          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+          <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
             <Box>
               <StyledCheckbox
                 id="answer1"
@@ -85,11 +86,8 @@ const QuestionOne = () => (
             <Box flex="grow">
               <label htmlFor="answer1" className="answer-label"> Answer 1</label>
             </Box>
-            <Box>
-              <i className="fa fa-check" />
-            </Box>
           </Box>
-          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+          <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
             <Box>
               <StyledCheckbox
                 id="answer2"
@@ -101,11 +99,8 @@ const QuestionOne = () => (
             <Box flex="grow">
               <label htmlFor="answer2" className="answer-label"> Answer 2</label>
             </Box>
-            <Box>
-              <i className="fa fa-check" />
-            </Box>
           </Box>
-          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+          <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
             <Box>
               <StyledCheckbox
                 id="answer3"
@@ -116,9 +111,6 @@ const QuestionOne = () => (
             </Box>
             <Box flex="grow">
               <label htmlFor="answer3" className="answer-label"> Answer 3</label>
-            </Box>
-            <Box>
-              <i className="fa fa-check" />
             </Box>
           </Box>
         </Box>
@@ -138,7 +130,7 @@ const QuestionTwo = () => (
     <div className="question" style={{ marginBottom: '20px' }}>
       <div className="answer">
         <Box pad={{ between: 'medium' }}>
-          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+          <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
             <Box>
               <StyledCheckbox
                 id="answer1"
@@ -150,11 +142,8 @@ const QuestionTwo = () => (
             <Box flex="grow">
               <label htmlFor="answer1" className="answer-label"> Answer 1</label>
             </Box>
-            <Box>
-              <i className="fa fa-check" />
-            </Box>
           </Box>
-          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+          <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
             <Box>
               <StyledCheckbox
                 id="answer2"
@@ -166,11 +155,8 @@ const QuestionTwo = () => (
             <Box flex="grow">
               <label htmlFor="answer2" className="answer-label"> Answer 2</label>
             </Box>
-            <Box>
-              <i className="fa fa-check" />
-            </Box>
           </Box>
-          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+          <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
             <Box>
               <StyledCheckbox
                 id="answer3"
@@ -181,9 +167,6 @@ const QuestionTwo = () => (
             </Box>
             <Box flex="grow">
               <label htmlFor="answer3" className="answer-label"> Answer 3</label>
-            </Box>
-            <Box>
-              <i className="fa fa-check" />
             </Box>
           </Box>
         </Box>
@@ -203,7 +186,7 @@ const QuestionThree = () => (
     <div className="question" style={{ marginBottom: '20px' }}>
       <div className="answer">
         <Box pad={{ between: 'medium' }}>
-          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+          <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
             <Box>
               <StyledCheckbox
                 id="answer1"
@@ -215,11 +198,9 @@ const QuestionThree = () => (
             <Box flex="grow">
               <label htmlFor="answer1" className="answer-label"> Answer 1</label>
             </Box>
-            <Box>
-              <i className="fa fa-check" />
-            </Box>
+
           </Box>
-          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+          <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
             <Box>
               <StyledCheckbox
                 id="answer2"
@@ -231,11 +212,8 @@ const QuestionThree = () => (
             <Box flex="grow">
               <label htmlFor="answer2" className="answer-label"> Answer 2</label>
             </Box>
-            <Box>
-              <i className="fa fa-check" />
-            </Box>
           </Box>
-          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+          <Box direction="row" responsive={false} pad={{ between: 'medium' }}>
             <Box>
               <StyledCheckbox
                 id="answer3"
@@ -246,9 +224,6 @@ const QuestionThree = () => (
             </Box>
             <Box flex="grow">
               <label htmlFor="answer3" className="answer-label"> Answer 3</label>
-            </Box>
-            <Box>
-              <i className="fa fa-check" />
             </Box>
           </Box>
         </Box>
@@ -275,6 +250,11 @@ class DetailPage extends Component {
     const { history, match } = this.props;
 
     const { id } = match.params;
+
+
+    if (activeQuestion === 4) {
+      return <Redirect to="/yp/course-list/finish" />;
+    }
 
     return (
       <div>
@@ -303,11 +283,25 @@ class DetailPage extends Component {
             { activeQuestion === 3 && <QuestionThree />}
             <Box>
               <Button
-                label="Check Answer"
-                href="#"
+                label="Next"
                 primary={false}
                 secondary={false}
+                onClick={() => {
+                    this.setState({ activeQuestion: this.state.activeQuestion + 1 });
+                  }}
               />
+              <br />
+              {
+                activeQuestion > 1 &&
+                <Button
+                  label="Back"
+                  primary={false}
+                  secondary={false}
+                  onClick={() => {
+                    this.setState({ activeQuestion: this.state.activeQuestion - 1 });
+                  }}
+                />
+              }
             </Box>
           </CustomCard>
         </Box>
