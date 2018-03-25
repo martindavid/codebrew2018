@@ -6,10 +6,23 @@ import CourseCard from './CourseCard';
 const CourseList = props => (
   <CustomCard>
     <Box onClick={() => props.history.push('/yp/course/1')}>
-      <CourseCard backgroundColor="#00BCD4" />
+      <CourseCard
+        value={40}
+        courseName="Biology 101"
+        backgroundColor="#00BCD4"
+      />
     </Box>
-    <CourseCard backgroundColor="#E6EE9C" />
-    <CourseCard backgroundColor="#C5E1A5" />
+    <CourseCard
+      value={100}
+      courseName="Robotic 101"
+      backgroundColor="#E6EE9C"
+    />
+    <CourseCard
+      courseName="Have fun with Python"
+      value={70}
+      backgroundColor="#C5E1A5"
+    />
+    
   </CustomCard>
 );
 

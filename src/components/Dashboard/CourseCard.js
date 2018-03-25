@@ -19,21 +19,21 @@ const CustomValue = styled(Value)`
   } 
 `;
 
-const CourseCard = ({ backgroundColor }) => (
+const CourseCard = ({ backgroundColor, value, courseName }) => (
   <div className="course-card">
     <div className="progress" style={{ backgroundColor }}>
       <CustomMeter
         type="circle"
         size="xsmall"
         label={<CustomValue
-          value={40}
+          value={value}
           units="%"
         />}
-        value={40}
+        value={value}
       />
     </div>
     <span className="course-label">Course</span>
-    <h4>Science 1</h4>
+    <h4>{courseName}</h4>
   </div>
 );
 
