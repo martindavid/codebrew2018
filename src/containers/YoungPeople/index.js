@@ -20,7 +20,7 @@ type Props = {
 };
 
 const ContentDiv = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 65px;
   margin-top: 65px;
 `;
 

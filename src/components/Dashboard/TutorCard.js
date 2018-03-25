@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import Box from 'grommet/components/Box';
+import Heading from 'grommet/components/Heading';
 import styled from 'styled-components';
 import Image from 'grommet/components/Image';
 import Anchor from 'grommet/components/Anchor';
@@ -22,13 +23,17 @@ const MenuBox = styled.div`
 function TutorCard(props: Props) {
   return (
     <CustomCard className="tutor-card">
-      <h3 style={{ marginBottom: '5px', textAlign: 'left' }}>Your Mentor</h3>
+      <Heading tag="h3" strong>
+        Your Mentor
+      </Heading>
       <Image
         src="http://u.lorenzoferrara.net/marlenesco/material-card/thumb-morgan-freeman.jpg"
         size="small"
         style={{ borderRadius: '10px' }}
       />
-      <h2>M. Freeman</h2>
+      <br />
+      <br />
+      <Heading tag="h3">M. Freeman</Heading>
       <div className="tutor-about">
         The Barbarian is a kilt-clad Scottish warrior with an angry, battle-ready expression, hungry
         for destruction. He has Killer yellow horseshoe mustache.
