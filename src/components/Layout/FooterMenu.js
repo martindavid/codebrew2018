@@ -31,7 +31,7 @@ class FooterMenu extends Component {
         <Anchor
           icon={<HomeIcon style={{ stroke: 'rgba(255, 255, 255, 1)' }} />}
           onClick={() => {
-            this.props.history.push('/yp');
+            this.props.history.push('/yp/home');
           }}
         />
       );
@@ -40,7 +40,7 @@ class FooterMenu extends Component {
       <Anchor
         icon={<HomeIcon style={{ stroke: 'rgba(255, 255, 255, 0.5)' }} />}
         onClick={() => {
-          this.props.history.push('/yp');
+          this.props.history.push('/yp/home');
         }}
       />
     );
@@ -110,8 +110,6 @@ class FooterMenu extends Component {
   };
 
   render() {
-    const { history } = this.props;
-
     return (
       <Box
         direction="row"
@@ -126,9 +124,7 @@ class FooterMenu extends Component {
         }}
       >
         <MenuBox>
-          <Route exact path="/yp">
-            {this.renderHomeMenu}
-          </Route>
+          <Route path="/yp/home">{this.renderHomeMenu}</Route>
         </MenuBox>
         <MenuBox>
           <Route path="/yp/course-list">{this.renderCourseMenu}</Route>

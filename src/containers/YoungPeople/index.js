@@ -11,6 +11,8 @@ import CourseList from './CourseList';
 import Progress from './Progress';
 import FooterMenu from '../../components/Layout/FooterMenu';
 import CourseDetail from '../../components/Course/DetailPage';
+import MeetingNotes from '../../components/MeetingNotes';
+import MeetingComplete from '../../components/MeetingComplete';
 
 type Props = {
   history: Object,
@@ -27,7 +29,9 @@ const YoungPeopleView = ({ history, match }: Props) => (
     <Header label="iFuture" />
     <ContentDiv>
       <Switch>
-        <Route path="/yp" exact component={Home} />
+        <Route path="/yp/home/meeting-notes" component={MeetingNotes} />
+        <Route path="/yp/home/complete" component={MeetingComplete} />
+        <Route path="/yp/home" component={Home} />
         <Route path="/yp/course-list" component={CourseList} />
         <Route path="/yp/course/:id" component={CourseDetail} />
         <Route path="/yp/progress" component={Progress} />

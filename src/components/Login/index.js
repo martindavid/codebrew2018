@@ -71,13 +71,13 @@ const handleSubmit = (values, { props, setSubmitting }) => {
         .get()
         .then((doc) => {
           if (doc.data().hasProfile) {
-            props.history.push(routes.home);
+            props.history.push(routes.ypHome);
           } else {
             props.history.push(routes.getStarted);
           }
         })
         .catch(() => {
-          props.history.push(routes.home);
+          props.history.push(routes.ypHome);
         });
     })
     .catch((error) => {
