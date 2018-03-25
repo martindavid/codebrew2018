@@ -1,6 +1,7 @@
 import React from 'react';
 import Meter from 'grommet/components/Meter';
 import Value from 'grommet/components/Value';
+import Button from 'grommet/components/Button';
 import styled from 'styled-components';
 
 const CustomMeter = styled(Meter)`
@@ -19,10 +20,12 @@ const CustomValue = styled(Value)`
   } 
 `;
 
-const CourseCard = ({ backgroundColor, value, courseName }) => (
+const CourseCard = ({
+  backgroundColor, value, courseName, isTaken,
+}) => (
   <div className="course-card">
     <div className="progress" style={{ backgroundColor }}>
-      <CustomMeter
+      { isTaken && <CustomMeter
         type="circle"
         size="xsmall"
         label={<CustomValue
@@ -30,7 +33,17 @@ const CourseCard = ({ backgroundColor, value, courseName }) => (
           units="%"
         />}
         value={value}
-      />
+      />}
+      {
+        !isTaken &&
+          <button
+            style={{ marginTop: '6%', borderColor: '#d60b52' }}
+            href="#"
+            label="Start"
+            type="button"
+          >Start
+          </button>
+      }
     </div>
     <span className="course-label">Course</span>
     <h4>{courseName}</h4>
