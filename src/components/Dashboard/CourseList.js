@@ -7,10 +7,22 @@ import { Link } from 'react-router-dom';
 const CourseList = () => (
   <CustomCard>
     <Link to="/yp/course-list/1">
-      <CourseCard backgroundColor="#00BCD4" />
+      <CourseCard
+        value={40}
+        courseName="Biology 101"
+        backgroundColor="#00BCD4"
+      />
     </Link>
-    <CourseCard backgroundColor="#E6EE9C" />
-    <CourseCard backgroundColor="#C5E1A5" />
+    <CourseCard
+      value={100}
+      courseName="Robotic 101"
+      backgroundColor="#E6EE9C"
+    />
+    <CourseCard
+      courseName="Have fun with Python"
+      value={70}
+      backgroundColor="#C5E1A5"
+    />
   </CustomCard>
 );
 
