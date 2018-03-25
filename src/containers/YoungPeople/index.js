@@ -15,6 +15,7 @@ import CourseDetail from '../../components/Course/DetailPage';
 import MeetingNotes from '../../components/MeetingNotes';
 import MeetingComplete from '../../components/MeetingComplete';
 import bg from '../../assets/bg.png';
+import CourseListComplete from '../../components/CourseListComplete';
 
 type Props = {
   history: Object,
@@ -52,7 +53,7 @@ const YoungPeopleView = ({ history, location, match }: Props) => {
           <Route path="/yp/home" component={Home} />
           <Route path="/yp/course-list" component={CourseList} />
           <Route path="/yp/course/:id" component={CourseDetail} />
-          <Route path="/yp/course/finish" component={ComingSoon} />
+          <Route path="/yp/course/finish" component={CourseListComplete} />
           <Route path="/yp/progress" component={Leaderboard} />
           <Route path="/yp/profile" component={ComingSoon} />
         </Switch>
