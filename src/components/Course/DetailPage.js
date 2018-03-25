@@ -45,9 +45,26 @@ const StyledCheckbox = styled.input`
 }
 `;
 
+const parseLabelName = (name) => {
+  switch (name) {
+    case '1':
+      return 'Biology 101';
+    case '2':
+      return 'Robotic 101';
+    case '3':
+      return 'Have Fun with Python';
+    case '4':
+      return 'Intro to Web Development';
+    case '5':
+      return 'Coding from Scratch';
+    default:
+      return '';
+  }
+};
+
 const QuestionOne = () => (
   <div>
-Question 1
+    Question 1
     <br />
     <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -56,34 +73,54 @@ Question 1
     <div className="question" style={{ marginBottom: '20px' }}>
       <div className="answer">
         <Box pad={{ between: 'medium' }}>
-          <div>
-            <StyledCheckbox
-              id="answer1"
-              type="radio"
-              className="option-input radio"
-              name="example"
-            />
-            <label htmlFor="answer1" className="answer-label"> Answer 1</label>
-            <i className="fa fa-check" />
-          </div>
-          <div>
-            <StyledCheckbox
-              id="answer2"
-              type="radio"
-              className="option-input radio"
-              name="example"
-            />
-            <label htmlFor="answer2" className="answer-label"> Answer 2</label>
-          </div>
-          <div>
-            <StyledCheckbox
-              id="answer3"
-              type="radio"
-              className="option-input radio"
-              name="example"
-            />
-            <label htmlFor="answer3" className="answer-label"> Answer 2</label>
-          </div>
+          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+            <Box>
+              <StyledCheckbox
+                id="answer1"
+                type="radio"
+                className="option-input radio"
+                name="example"
+              />
+            </Box>
+            <Box flex="grow">
+              <label htmlFor="answer1" className="answer-label"> Answer 1</label>
+            </Box>
+            <Box>
+              <i className="fa fa-check" />
+            </Box>
+          </Box>
+          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+            <Box>
+              <StyledCheckbox
+                id="answer2"
+                type="radio"
+                className="option-input radio"
+                name="example"
+              />
+            </Box>
+            <Box flex="grow">
+              <label htmlFor="answer2" className="answer-label"> Answer 2</label>
+            </Box>
+            <Box>
+              <i className="fa fa-check" />
+            </Box>
+          </Box>
+          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+            <Box>
+              <StyledCheckbox
+                id="answer3"
+                type="radio"
+                className="option-input radio"
+                name="example"
+              />
+            </Box>
+            <Box flex="grow">
+              <label htmlFor="answer3" className="answer-label"> Answer 3</label>
+            </Box>
+            <Box>
+              <i className="fa fa-check" />
+            </Box>
+          </Box>
         </Box>
       </div>
     </div>
@@ -92,7 +129,7 @@ Question 1
 
 const QuestionTwo = () => (
   <div>
-    Question 1
+    Question 2
     <br />
     <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -101,33 +138,54 @@ const QuestionTwo = () => (
     <div className="question" style={{ marginBottom: '20px' }}>
       <div className="answer">
         <Box pad={{ between: 'medium' }}>
-          <div>
-            <StyledCheckbox
-              id="answer1"
-              type="radio"
-              className="option-input radio"
-              name="example"
-            />
-            <label htmlFor="answer1" className="answer-label"> Answer 1</label>
-          </div>
-          <div>
-            <StyledCheckbox
-              id="answer2"
-              type="radio"
-              className="option-input radio"
-              name="example"
-            />
-            <label htmlFor="answer2" className="answer-label"> Answer 2</label>
-          </div>
-          <div>
-            <StyledCheckbox
-              id="answer3"
-              type="radio"
-              className="option-input radio"
-              name="example"
-            />
-            <label htmlFor="answer3" className="answer-label"> Answer 2</label>
-          </div>
+          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+            <Box>
+              <StyledCheckbox
+                id="answer1"
+                type="radio"
+                className="option-input radio"
+                name="example"
+              />
+            </Box>
+            <Box flex="grow">
+              <label htmlFor="answer1" className="answer-label"> Answer 1</label>
+            </Box>
+            <Box>
+              <i className="fa fa-check" />
+            </Box>
+          </Box>
+          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+            <Box>
+              <StyledCheckbox
+                id="answer2"
+                type="radio"
+                className="option-input radio"
+                name="example"
+              />
+            </Box>
+            <Box flex="grow">
+              <label htmlFor="answer2" className="answer-label"> Answer 2</label>
+            </Box>
+            <Box>
+              <i className="fa fa-check" />
+            </Box>
+          </Box>
+          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+            <Box>
+              <StyledCheckbox
+                id="answer3"
+                type="radio"
+                className="option-input radio"
+                name="example"
+              />
+            </Box>
+            <Box flex="grow">
+              <label htmlFor="answer3" className="answer-label"> Answer 3</label>
+            </Box>
+            <Box>
+              <i className="fa fa-check" />
+            </Box>
+          </Box>
         </Box>
       </div>
     </div>
@@ -136,7 +194,7 @@ const QuestionTwo = () => (
 
 const QuestionThree = () => (
   <div>
-    Question 1
+    Question 3
     <br />
     <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -145,33 +203,54 @@ const QuestionThree = () => (
     <div className="question" style={{ marginBottom: '20px' }}>
       <div className="answer">
         <Box pad={{ between: 'medium' }}>
-          <div>
-            <StyledCheckbox
-              id="answer1"
-              type="radio"
-              className="option-input radio"
-              name="example"
-            />
-            <label htmlFor="answer1" className="answer-label"> Answer 1</label>
-          </div>
-          <div>
-            <StyledCheckbox
-              id="answer2"
-              type="radio"
-              className="option-input radio"
-              name="example"
-            />
-            <label htmlFor="answer2" className="answer-label"> Answer 2</label>
-          </div>
-          <div>
-            <StyledCheckbox
-              id="answer3"
-              type="radio"
-              className="option-input radio"
-              name="example"
-            />
-            <label htmlFor="answer3" className="answer-label"> Answer 2</label>
-          </div>
+          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+            <Box>
+              <StyledCheckbox
+                id="answer1"
+                type="radio"
+                className="option-input radio"
+                name="example"
+              />
+            </Box>
+            <Box flex="grow">
+              <label htmlFor="answer1" className="answer-label"> Answer 1</label>
+            </Box>
+            <Box>
+              <i className="fa fa-check" />
+            </Box>
+          </Box>
+          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+            <Box>
+              <StyledCheckbox
+                id="answer2"
+                type="radio"
+                className="option-input radio"
+                name="example"
+              />
+            </Box>
+            <Box flex="grow">
+              <label htmlFor="answer2" className="answer-label"> Answer 2</label>
+            </Box>
+            <Box>
+              <i className="fa fa-check" />
+            </Box>
+          </Box>
+          <Box direction="row" responsive="false" pad={{ between: 'medium' }}>
+            <Box>
+              <StyledCheckbox
+                id="answer3"
+                type="radio"
+                className="option-input radio"
+                name="example"
+              />
+            </Box>
+            <Box flex="grow">
+              <label htmlFor="answer3" className="answer-label"> Answer 3</label>
+            </Box>
+            <Box>
+              <i className="fa fa-check" />
+            </Box>
+          </Box>
         </Box>
       </div>
     </div>
@@ -193,11 +272,13 @@ class DetailPage extends Component {
 
   render() {
     const { activeQuestion } = this.state;
-    const { history } = this.props;
+    const { history, match } = this.props;
+
+    const { id } = match.params;
 
     return (
       <div>
-        <h2 style={{ marginTop: '10px', marginLeft: '10px', marginBottom: '10px' }}>Course detail</h2>
+        <h2 style={{ marginTop: '10px', marginLeft: '10px', marginBottom: '10px' }}>{parseLabelName(id)}</h2>
         <Button
           href="#"
           style={{ marginLeft: '10px' }}
@@ -214,17 +295,22 @@ class DetailPage extends Component {
             <div className="wistia_embed wistia_async_u99iorpkld videoFoam=true" style={{ height: '100%', width: '100%' }}>&nbsp;</div>
           </WistiaWrapperStyled>
         </WistiaPaddingStyled>
-        <CustomCard>
-          { activeQuestion === 1 && <QuestionOne />}
-          <Box>
-            <Button
-              label="Check Answer"
-              href="#"
-              primary={false}
-              secondary={false}
-            />
-          </Box>
-        </CustomCard>
+        <br />
+        <Box pad="large">
+          <CustomCard>
+            { activeQuestion === 1 && <QuestionOne />}
+            { activeQuestion === 2 && <QuestionTwo />}
+            { activeQuestion === 3 && <QuestionThree />}
+            <Box>
+              <Button
+                label="Check Answer"
+                href="#"
+                primary={false}
+                secondary={false}
+              />
+            </Box>
+          </CustomCard>
+        </Box>
       </div>
     );
   }

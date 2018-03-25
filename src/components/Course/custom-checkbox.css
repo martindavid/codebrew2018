@@ -28,7 +28,7 @@
   height: 40px;
   width: 40px;
   position: absolute;
-  content: '✔';
+  content: '❌';
   display: inline-block;
   font-size: 26.66667px;
   text-align: center;
@@ -51,8 +51,6 @@
 }
 
 .answer-label {
-  vertical-align: middle;
-    display: table;
-    margin-left: 50px;
-    margin-top: 5px;
+  text-align: left;
+  margin-top: 5px;
 }
